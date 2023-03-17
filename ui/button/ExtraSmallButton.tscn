@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://ui/theme.tres" type="Theme" id=1]
+[ext_resource path="res://assets/ui_buttons.png" type="Texture" id=2]
+[ext_resource path="res://ui/button/Button.gd" type="Script" id=3]
+
+[sub_resource type="AtlasTexture" id=27]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 48, 16 )
+
+[sub_resource type="AtlasTexture" id=29]
+atlas = ExtResource( 2 )
+region = Rect2( 192, 0, 48, 16 )
+
+[sub_resource type="AtlasTexture" id=30]
+atlas = ExtResource( 2 )
+region = Rect2( 96, 0, 48, 16 )
+
+[node name="ExtraSmallButton" type="TextureButton"]
+margin_left = 142.0
+margin_top = 55.0
+margin_right = 179.0
+margin_bottom = 71.0
+mouse_default_cursor_shape = 2
+texture_normal = SubResource( 27 )
+texture_pressed = SubResource( 29 )
+texture_hover = SubResource( 30 )
+expand = true
+stretch_mode = 2
+script = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 2.0
+margin_right = 34.0
+margin_bottom = 16.0
+theme = ExtResource( 1 )
+custom_colors/font_outline_modulate = Color( 0.945098, 0.968627, 0.415686, 0 )
+align = 1
+valign = 1

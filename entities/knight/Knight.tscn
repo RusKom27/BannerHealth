@@ -110,9 +110,9 @@ animations = [ {
 "speed": 15.0
 }, {
 "frames": [ SubResource( 18 ) ],
-"loop": true,
+"loop": false,
 "name": "land",
-"speed": 15.0
+"speed": 20.0
 }, {
 "frames": [ SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ) ],
 "loop": true,
@@ -128,12 +128,9 @@ position = Vector2( 0, -9 )
 shape = SubResource( 1 )
 
 [node name="Animation" parent="." instance=ExtResource( 1 )]
-position = Vector2( 0, -15 )
+position = Vector2( 0, -14 )
 frames = SubResource( 7 )
 animation = "idle"
 frame = 1
-
-[node name="Camera2D" type="Camera2D" parent="."]
-current = true
 
 [node name="InputController" parent="." instance=ExtResource( 2 )]

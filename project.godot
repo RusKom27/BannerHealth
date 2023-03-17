@@ -21,6 +21,10 @@ window/size/width=427
 window/size/height=250
 window/size/test_width=1024
 window/size/test_height=600
+window/dpi/allow_hidpi=true
+window/vsync/vsync_via_compositor=true
+window/per_pixel_transparency/allowed=true
+window/per_pixel_transparency/enabled=true
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
 
@@ -104,8 +108,16 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
+quality/filters/sharpen_intensity=1.0
 quality/driver/driver_name="GLES2"
+quality/intended_usage/framebuffer_allocation=0
+quality/intended_usage/framebuffer_allocation.mobile=0
+2d/snapping/use_gpu_pixel_snap=true
 vram_compression/import_etc=true
 vram_compression/import_etc2=false
+quality/shadows/filter_mode=0
+quality/filters/anisotropic_filter_level=1
+2d/options/ninepatch_mode=0
 environment/default_clear_color=Color( 0.156863, 0.172549, 0.235294, 1 )
 environment/default_environment="res://default_env.tres"
+quality/dynamic_fonts/use_oversampling=false

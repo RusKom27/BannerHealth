@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://components/game_ui/GameUI.tscn" type="PackedScene" id=1]
+[ext_resource path="res://components/camera/Camera.gd" type="Script" id=2]
+
+[node name="Camera2D" type="Camera2D"]
+current = true
+script = ExtResource( 2 )
+
+[node name="GameUI" parent="." instance=ExtResource( 1 )]
+margin_left = -215.0
+margin_top = -126.0
+margin_right = 215.0
+margin_bottom = 126.0
