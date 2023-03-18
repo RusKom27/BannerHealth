@@ -1,0 +1,77 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://assets/icons.png" type="Texture" id=1]
+[ext_resource path="res://ui/heart/Heart.gd" type="Script" id=2]
+
+[sub_resource type="AtlasTexture" id=29]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=30]
+atlas = ExtResource( 1 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=31]
+atlas = ExtResource( 1 )
+region = Rect2( 32, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=27]
+atlas = ExtResource( 1 )
+region = Rect2( 48, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=33]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 16, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=34]
+atlas = ExtResource( 1 )
+region = Rect2( 16, 16, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=35]
+atlas = ExtResource( 1 )
+region = Rect2( 32, 16, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=36]
+atlas = ExtResource( 1 )
+region = Rect2( 48, 16, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=37]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 16, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=28]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=32]
+animations = [ {
+"frames": [ SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 27 ) ],
+"loop": true,
+"name": "active",
+"speed": 15.0
+}, {
+"frames": [ SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ) ],
+"loop": true,
+"name": "half_active",
+"speed": 15.0
+}, {
+"frames": [ SubResource( 37 ) ],
+"loop": true,
+"name": "half_idle",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 28 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+} ]
+
+[node name="Heart" type="Control"]
+margin_bottom = 34.0
+script = ExtResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 32 )
+animation = "idle"
+playing = true
+centered = false

@@ -17,10 +17,8 @@ atlas = ExtResource( 2 )
 region = Rect2( 96, 0, 48, 16 )
 
 [node name="ExtraSmallButton" type="TextureButton"]
-margin_left = 142.0
-margin_top = 55.0
-margin_right = 179.0
-margin_bottom = 71.0
+margin_right = 37.0
+margin_bottom = 16.0
 mouse_default_cursor_shape = 2
 texture_normal = SubResource( 27 )
 texture_pressed = SubResource( 29 )

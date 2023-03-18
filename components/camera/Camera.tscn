@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://components/game_ui/GameUI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://components/camera/Camera.gd" type="Script" id=2]
+[ext_resource path="res://assets/ui_background.png" type="Texture" id=3]
+[ext_resource path="res://ui/button/BigButton.tscn" type="PackedScene" id=5]
+[ext_resource path="res://components/game_ui/PauseUI.gd" type="Script" id=6]
+[ext_resource path="res://assets/ui_background_1.png" type="Texture" id=7]
 
 [node name="Camera2D" type="Camera2D"]
 current = true
@@ -12,3 +16,64 @@ margin_left = -215.0
 margin_top = -126.0
 margin_right = 215.0
 margin_bottom = 126.0
+
+[node name="PauseUI" type="Control" parent="."]
+pause_mode = 2
+visible = false
+margin_left = -215.0
+margin_top = -126.0
+margin_right = 215.0
+margin_bottom = 126.0
+script = ExtResource( 6 )
+
+[node name="TextureRect" type="TextureRect" parent="PauseUI"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -135.0
+margin_top = -215.0
+margin_right = 184.0
+margin_bottom = 32.0
+texture = ExtResource( 3 )
+expand = true
+
+[node name="TextureRect2" type="TextureRect" parent="PauseUI"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -87.0
+margin_top = -121.0
+margin_right = 185.0
+margin_bottom = 35.0
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseUI"]
+margin_left = 178.0
+margin_top = 56.0
+margin_right = 313.0
+margin_bottom = 234.0
+custom_constants/separation = 24
+
+[node name="Control" type="Control" parent="PauseUI/VBoxContainer"]
+margin_right = 135.0
+
+[node name="BigButton" parent="PauseUI/VBoxContainer/Control" instance=ExtResource( 5 )]
+text = "Continue"
+
+[node name="Control2" type="Control" parent="PauseUI/VBoxContainer"]
+margin_top = 24.0
+margin_right = 135.0
+margin_bottom = 24.0
+
+[node name="BigButton" parent="PauseUI/VBoxContainer/Control2" instance=ExtResource( 5 )]
+text = "Restart"
+action_type = 1
+
+[node name="Control3" type="Control" parent="PauseUI/VBoxContainer"]
+margin_top = 48.0
+margin_right = 135.0
+margin_bottom = 48.0
+
+[node name="BigButton" parent="PauseUI/VBoxContainer/Control3" instance=ExtResource( 5 )]
+text = "Main Menu"
+action_type = 2
