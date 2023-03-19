@@ -27,8 +27,8 @@ func _physics_process(delta):
 		Global.WALK_STATE
 		].has(current_state)
 	)
-	idle_ability = (
-		![Global.ATTACK_STATE,
+	idle_ability = !(
+		[Global.ATTACK_STATE,
 		Global.LAND_STATE,
 		Global.FALL_STATE,
 		Global.JUMP_STATE,
@@ -40,7 +40,11 @@ func _physics_process(delta):
 func change_state(state, ignore_ability = false):
 	match state:
 		Global.State.IDLE:
-			if ((idle_ability and current_state != Global.ATTACK_STATE) || ignore_ability):
+			if ((idle_ability and 
+			current_state != Global.ATTACK_STATE and 
+			current_state != Global.TAKE_DAMAGE_STATE and 
+			current_state != Global.DEATH_STATE) || 
+			ignore_ability):
 				current_state = Global.IDLE_STATE
 		Global.State.WALK:
 			if (move_ability || ignore_ability):

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Runescape - Newbie Melody.mp3-b5a33a77afe1a690b997a8e5df1909c7.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/Runescape - Newbie Melody.mp3"
+dest_files=[ "res://.import/Runescape - Newbie Melody.mp3-b5a33a77afe1a690b997a8e5df1909c7.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

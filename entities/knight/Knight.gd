@@ -9,6 +9,8 @@ onready var attackable = $Attackable
 onready var state_machine = $EntityStateMachine
 onready var camera = get_parent().camera
 
+var is_dead = false
+
 func _ready():
 	animation.connect("animation_finished", self, "_on_animation_finished")
 	animation.connect("frame_changed", self, "_on_frame_changed")
@@ -55,17 +57,23 @@ func _on_animation_finished():
 	if (animation.animation == Global.FALL_STATE):
 		state_machine.change_state(Global.State.LAND, true)
 	if (animation.animation == Global.LAND_STATE):
+		movable.sfx_audio.play_effect(Global.SFXEffect.ButtonPress)
 		state_machine.change_state(Global.State.IDLE, true)
 	if (animation.animation == Global.ATTACK_STATE):
 		state_machine.change_state(Global.State.IDLE, true)
 	if (animation.animation == Global.TAKE_DAMAGE_STATE):
 		state_machine.change_state(Global.State.IDLE, true)
+	if (animation.animation == Global.DEATH_STATE):
+		is_dead = true
 
 func _on_frame_changed():
 	if (animation.animation == Global.ATTACK_STATE and animation.frame == 2):
 		attackable.attack()
 		if (camera):
 			camera.shake()
+	if (animation.animation == Global.WALK_STATE and 
+		(animation.frame == 2 or animation.frame == 4)):
+		movable.sfx_audio.play_effect(Global.SFXEffect.Walk)
 
 func attack():
 	if (attackable.attack_ready):

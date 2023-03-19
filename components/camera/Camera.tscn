@@ -1,11 +1,50 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://components/game_ui/GameUI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://components/camera/Camera.gd" type="Script" id=2]
 [ext_resource path="res://assets/ui_background.png" type="Texture" id=3]
+[ext_resource path="res://components/game_ui/GameOverUI.gd" type="Script" id=4]
 [ext_resource path="res://ui/button/BigButton.tscn" type="PackedScene" id=5]
 [ext_resource path="res://components/game_ui/PauseUI.gd" type="Script" id=6]
 [ext_resource path="res://assets/ui_background_1.png" type="Texture" id=7]
+[ext_resource path="res://assets/icons.png" type="Texture" id=8]
+[ext_resource path="res://ui/Cross.gd" type="Script" id=9]
+[ext_resource path="res://ui/button/MediumButton.tscn" type="PackedScene" id=10]
+[ext_resource path="res://ui/button/ExtraSmallButton.tscn" type="PackedScene" id=11]
+[ext_resource path="res://assets/ui_game_over_title.png" type="Texture" id=12]
+
+[sub_resource type="AtlasTexture" id=38]
+atlas = ExtResource( 8 )
+region = Rect2( 0, 80, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=39]
+atlas = ExtResource( 8 )
+region = Rect2( 16, 80, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=40]
+atlas = ExtResource( 8 )
+region = Rect2( 32, 80, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=41]
+atlas = ExtResource( 8 )
+region = Rect2( 48, 80, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=42]
+atlas = ExtResource( 8 )
+region = Rect2( 0, 80, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ SubResource( 38 ), SubResource( 39 ), SubResource( 40 ), SubResource( 41 ) ],
+"loop": false,
+"name": "active",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 42 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+} ]
 
 [node name="Camera2D" type="Camera2D"]
 current = true
@@ -75,5 +114,91 @@ margin_right = 135.0
 margin_bottom = 48.0
 
 [node name="BigButton" parent="PauseUI/VBoxContainer/Control3" instance=ExtResource( 5 )]
+text = "Main Menu"
+action_type = 2
+
+[node name="MediumButton" parent="PauseUI" instance=ExtResource( 10 )]
+margin_left = 207.0
+margin_top = 205.0
+margin_right = 275.0
+margin_bottom = 221.0
+rect_pivot_offset = Vector2( -84, -50 )
+text = "Music"
+action_type = 5
+
+[node name="Cross" type="AnimatedSprite" parent="PauseUI/MediumButton"]
+position = Vector2( 33, 8 )
+frames = SubResource( 6 )
+animation = "active"
+script = ExtResource( 9 )
+
+[node name="ExtraSmallButton" parent="PauseUI" instance=ExtResource( 11 )]
+margin_left = 166.0
+margin_top = 205.0
+margin_right = 203.0
+margin_bottom = 221.0
+text = "SFX"
+action_type = 4
+
+[node name="Cross" type="AnimatedSprite" parent="PauseUI/ExtraSmallButton"]
+position = Vector2( 17, 9 )
+frames = SubResource( 6 )
+animation = "active"
+script = ExtResource( 9 )
+
+[node name="GameOverUI" type="Control" parent="."]
+pause_mode = 2
+visible = false
+margin_left = -213.0
+margin_top = -125.0
+margin_right = 213.0
+margin_bottom = 126.0
+script = ExtResource( 4 )
+
+[node name="TextureRect" type="TextureRect" parent="GameOverUI"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -135.0
+margin_top = -215.0
+margin_right = 184.0
+margin_bottom = 32.0
+texture = ExtResource( 3 )
+expand = true
+
+[node name="TextureRect2" type="TextureRect" parent="GameOverUI"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -90.0
+margin_top = -82.0
+margin_right = 182.0
+margin_bottom = 74.0
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 3
+
+[node name="UiGameOverTitle" type="Sprite" parent="GameOverUI"]
+position = Vector2( 219, 71 )
+texture = ExtResource( 12 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameOverUI"]
+margin_left = 172.0
+margin_top = 105.0
+margin_right = 307.0
+margin_bottom = 283.0
+custom_constants/separation = 24
+
+[node name="Control2" type="Control" parent="GameOverUI/VBoxContainer"]
+margin_right = 135.0
+
+[node name="BigButton" parent="GameOverUI/VBoxContainer/Control2" instance=ExtResource( 5 )]
+text = "Restart"
+action_type = 1
+
+[node name="Control3" type="Control" parent="GameOverUI/VBoxContainer"]
+margin_top = 24.0
+margin_right = 135.0
+margin_bottom = 24.0
+
+[node name="BigButton" parent="GameOverUI/VBoxContainer/Control3" instance=ExtResource( 5 )]
 text = "Main Menu"
 action_type = 2

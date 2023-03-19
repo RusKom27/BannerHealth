@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://ui/button/Button.gd" type="Script" id=1]
 [ext_resource path="res://ui/theme.tres" type="Theme" id=2]
 [ext_resource path="res://assets/ui_buttons.png" type="Texture" id=3]
+[ext_resource path="res://components/sfx_audio/SFXAudio.tscn" type="PackedScene" id=4]
 
 [sub_resource type="AtlasTexture" id=27]
 atlas = ExtResource( 3 )
@@ -19,6 +20,7 @@ region = Rect2( 96, 32, 80, 16 )
 [node name="MediumButton" type="TextureButton"]
 margin_right = 68.0
 margin_bottom = 16.0
+rect_pivot_offset = Vector2( -268, -100 )
 mouse_default_cursor_shape = 2
 texture_normal = SubResource( 27 )
 texture_pressed = SubResource( 28 )
@@ -36,3 +38,5 @@ theme = ExtResource( 2 )
 custom_colors/font_outline_modulate = Color( 0.945098, 0.968627, 0.415686, 0 )
 align = 1
 valign = 1
+
+[node name="SFXAudio" parent="." instance=ExtResource( 4 )]

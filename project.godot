@@ -13,15 +13,21 @@ _global_script_classes=[ {
 "class": "Knight",
 "language": "GDScript",
 "path": "res://entities/knight/Knight.gd"
+}, {
+"base": "AudioStreamPlayer2D",
+"class": "SFXAudio",
+"language": "GDScript",
+"path": "res://components/sfx_audio/SFXAudio.gd"
 } ]
 _global_script_class_icons={
-"Knight": ""
+"Knight": "",
+"SFXAudio": ""
 }
 
 [application]
 
 config/name="BannerHealth"
-run/main_scene="res://levels/base_level.tscn"
+run/main_scene="res://ui/main_menu.tscn"
 boot_splash/bg_color=Color( 0.156863, 0.172549, 0.235294, 1 )
 config/icon="res://icon.png"
 

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Runescape - Camelot.mp3-eb648450f27b8004d3ad99e0ee81875b.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/Runescape - Camelot.mp3"
+dest_files=[ "res://.import/Runescape - Camelot.mp3-eb648450f27b8004d3ad99e0ee81875b.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

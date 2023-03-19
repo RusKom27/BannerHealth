@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://components/animation/Animation.tscn" type="PackedScene" id=1]
 [ext_resource path="res://components/input_controller/InputController.tscn" type="PackedScene" id=2]
@@ -6,8 +6,8 @@
 [ext_resource path="res://entities/knight/Knight.gd" type="Script" id=4]
 [ext_resource path="res://assets/knight.png" type="Texture" id=5]
 [ext_resource path="res://components/entity_state_machine/EntityStateMachine.tscn" type="PackedScene" id=6]
-[ext_resource path="res://components/killable/Killable.gd" type="Script" id=7]
-[ext_resource path="res://components/attackable/Attackable.gd" type="Script" id=8]
+[ext_resource path="res://components/attackable/Attackable.tscn" type="PackedScene" id=7]
+[ext_resource path="res://components/killable/Killable.tscn" type="PackedScene" id=8]
 
 [sub_resource type="AtlasTexture" id=28]
 atlas = ExtResource( 5 )
@@ -168,12 +168,6 @@ animations = [ {
 "speed": 15.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=58]
-extents = Vector2( 7.5, 12.75 )
-
-[sub_resource type="RectangleShape2D" id=59]
-extents = Vector2( 25.5, 7 )
-
 [node name="KinematicBody2D" type="KinematicBody2D"]
 position = Vector2( 0.6, 0 )
 script = ExtResource( 4 )
@@ -186,6 +180,7 @@ polygon = PoolVector2Array( 0, 9, 10, 1, 10, -6, 0, -10, -10, -6, -10, 1 )
 position = Vector2( 0, -14 )
 frames = SubResource( 48 )
 animation = "idle"
+frame = 4
 
 [node name="InputController" parent="." instance=ExtResource( 2 )]
 
@@ -193,20 +188,6 @@ animation = "idle"
 
 [node name="EntityStateMachine" parent="." instance=ExtResource( 6 )]
 
-[node name="Killable" type="Area2D" parent="."]
-script = ExtResource( 7 )
-health = 5.0
+[node name="Killable" parent="." instance=ExtResource( 8 )]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Killable"]
-position = Vector2( 0, -13.25 )
-shape = SubResource( 58 )
-
-[node name="Attackable" type="Area2D" parent="."]
-script = ExtResource( 8 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Attackable"]
-position = Vector2( 13.5, -9 )
-shape = SubResource( 59 )
-
-[node name="AttackCooldown" type="Timer" parent="Attackable"]
-one_shot = true
+[node name="Attackable" parent="." instance=ExtResource( 7 )]
